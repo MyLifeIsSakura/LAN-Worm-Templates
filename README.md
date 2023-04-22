@@ -1,8 +1,8 @@
 # LAN-Worm-Templates
-Worms, Email worms, Instant Messaging worms...
+Worms, Email worms, mIRC worms, Instant Messaging worms...
 Those are dinosaurs, if people get a suspicious email
-From a person they know in a creepy format then they
-Don't really open it no more, but LAN and Network worms on the other hand
+From a person they know in a creepy format they
+Don't really open it no more these days, but LAN and Network worms on the other hand
 Those don't require confirmation, they arnt vampires, they don't require you
 To open the door, they pick the lock.
 
