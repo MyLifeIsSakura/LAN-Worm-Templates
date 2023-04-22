@@ -26,7 +26,7 @@ For Each objFile in colFiles
             
            
             If strScriptContents = strCurrentScriptContents Then
-                ' Run the VBS file
+               
                 WshShell.Run Chr(34) & strFilePath & Chr(34), 0
             End If
         End If
