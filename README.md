@@ -6,7 +6,7 @@ Don't really open it no more these days, but LAN and Network worms on the other 
 Those don't require confirmation, they arnt vampires, they don't require you
 To open the door, they pick the lock.
 
-But u are a dumbass and don't wanna put in the worm for a LAN worm?
+But u are a dumbass and don't wanna put in the work for a LAN worm?
 Well don't worry! Cuz I gotcha!
 There are 3 templates in 3 languages, 
 Assembly, BatchFile and Visual Basic.
